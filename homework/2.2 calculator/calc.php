@@ -1,7 +1,7 @@
 <?php
 
-if (!empty($_POST["part"]))
-{ //проверяем не пустой ли запрос
+if (!empty($_POST["part"]))//проверяем не пустой ли запрос
+{ 
     $part = $_POST["part"]; //($_POST - массив переменных, передаваемых из браузера (от клиента)
 
     $result = solve($part);
@@ -10,11 +10,12 @@ if (!empty($_POST["part"]))
     // echo "выражение - ".$part. "<br>";
     // echo "результат - ".$result;
     // }
+
     header("Location: calc.html?result=".urlencode($result));
     exit;
-} else
-{
-    echo "заполните поле";
+
+} else { //если выражение пустое то выводим ошибку
+      header("Location: calc.html?result=ошибка: введите значение!");
 }
 
 function plus($a, $b)
