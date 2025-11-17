@@ -9,32 +9,33 @@
 <body>
     <div class ="calc">
         <form method="post" action="calc.php">
-            <input type="text" class="display" id="display" readonly>
+            
+            <input type="text" class="display" name="part" id="display" readonly>
 
             <div class = "buttons">
            
-                <button onclick="addToDisp('/')">/</button>
-                <button onclick="addToDisp('1')">1</button>
-                <button onclick="addToDisp('2')">2</button>
-                <button onclick="addToDisp('3')">3</button>
-                <button onclick="addToDisp('+')">+</button>
+                <button type="button" onclick="addToDisp('/')">/</button>
+                <button type="button" onclick="addToDisp('1')">1</button>
+                <button type="button" onclick="addToDisp('2')">2</button>
+                <button type="button" onclick="addToDisp('3')">3</button>
+                <button type="button" onclick="addToDisp('+')">+</button>
 
-                <button onclick="addToDisp('4')">4</button>
-                <button onclick="addToDisp('5')">5</button>
-                <button onclick="addToDisp('6')">6</button>
-                <button onclick="addToDisp('-')">-</button>
+                <button type="button" onclick="addToDisp('4')">4</button>
+                <button type="button" onclick="addToDisp('5')">5</button>
+                <button type="button" onclick="addToDisp('6')">6</button>
+                <button type="button" onclick="addToDisp('-')">-</button>
 
-                <button onclick="addToDisp('7')">7</button>
-                <button onclick="addToDisp('8')">8</button>
-                <button onclick="addToDisp('9')">9</button>
-                <button onclick="addToDisp('*')">x</button>
+                <button type="button" onclick="addToDisp('7')">7</button>
+                <button type="button" onclick="addToDisp('8')">8</button>
+                <button type="button" onclick="addToDisp('9')">9</button>
+                <button type="button" onclick="addToDisp('*')">x</button>
 
-                <button onclick="addToDisp('(')">(</button>
-                <button onclick="addToDisp('0')">0</button>
-                <button onclick="addToDisp(')')">)</button>
+                <button type="button"  onclick="addToDisp('(')">(</button>
+                <button type="button"  onclick="addToDisp('0')">0</button>
+                <button type="button"  onclick="addToDisp(')')">)</button>
 
-                <button onclick="calculate()" class="result" colspan="2">=</button>
-                <button onclick="clearDisp()" class="clear">C</button>
+                <button type="submit value" onclick="calculate()" class="result" colspan="2">=</button>
+                <button type="button" onclick="clearDisp()" class="clear">C</button>
 
             </div>
         </form>
