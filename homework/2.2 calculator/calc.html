@@ -35,7 +35,7 @@
                 <button type="button"  onclick="addToDisp(')')">)</button>
 
                 <button type="submit" class="result" colspan="2">=</button>
-                <button type="button" onclick="clearDisp()" class="clear">C</button>
+                <button type="button" onclick="clearDisp()"  class="clear">C</button>
 
             </div>
         </form>
@@ -48,6 +48,7 @@
 
         function clearDisp() {
             document.getElementById('display').value = '';
+            window.location.href = 'calc.html';
         }
 
            window.onload = function() {
