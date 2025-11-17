@@ -13,15 +13,22 @@
     box-sizing: border-box;
 }
 
-.display {
+.display, .displayAnswer {
     width: 90%;
-    height: 50px;
     margin-bottom: 15px;
     padding: 10px;
     font-size: 18px;
     border: 1px solid #0f0d0d;
     border-radius: 5px;
     background-color: rgb(247, 248, 250)
+}
+
+.display {
+   height: 50px;
+}
+
+.displayAnswer {
+    height: 30px;
 }
 
 button {

@@ -1,17 +1,21 @@
 <?php
 
-if (!empty($_POST["part"])) { //проверяем не пустой ли запрос)
+if (!empty($_POST["part"])) { //проверяем не пустой ли запрос
 
     $part = $_POST["part"]; //($_POST - массив переменных, передаваемых из браузера (от клиента)
 
     $result = solve($part);
 
-    echo "выражение - ".$part. "\n";
-    echo "результат - ".$result;
+    header("Location: calc.php?result=".urlencode($result));
+    exit;
 
-} else {
-    echo "Переменные не дошли";
+} else if (isset($_GET["result"])) {
+    $displayAnswer = $_GET["result"];
+}  else {
+    echo "заполните поле";
 }
+    // echo "выражение - ".$part. "<br>";
+    // echo "результат - ".$result;
 
 function plus($a, $b) {
     return $a + $b;
@@ -34,11 +38,14 @@ function divide($a, $b) {
 
 function solve($part) {
 
-    preg_match("'/(\d+)([\+\-\*\/])(\d+)/'", $part, $matches);
+    preg_match('/(\d+)([\+\-\*\/])(\d+)/', $part, $matches);
+    
+// print_r($matches);
+
     if (count($matches) != 4) {
         return "Неверно введенное выражение";
     }
-
+    
     $a = $matches[1];
     $oper = $matches[2];
     $b = $matches[3];
@@ -57,5 +64,6 @@ function solve($part) {
         
     }
 }
+
 
 ?>

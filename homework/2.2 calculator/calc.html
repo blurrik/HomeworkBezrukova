@@ -11,7 +11,7 @@
         <form method="post" action="calc.php">
             
             <input type="text" class="display" name="part" id="display" readonly>
-
+            <input type="text" class="displayAnswer" name="answer" id="display" value="<?php echo htmlspecialchars($displayAnswer); ?>" readonly>
             <div class = "buttons">
            
                 <button type="button" onclick="addToDisp('/')">/</button>
@@ -36,7 +36,6 @@
 
                 <button type="submit value" onclick="calculate()" class="result" colspan="2">=</button>
                 <button type="button" onclick="clearDisp()" class="clear">C</button>
-
             </div>
         </form>
     </div>
