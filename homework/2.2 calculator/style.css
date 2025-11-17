@@ -13,7 +13,7 @@
     box-sizing: border-box;
 }
 
-.display, .displayAnswer {
+.displayValue, .displayAnswer {
     width: 90%;
     margin-bottom: 15px;
     padding: 10px;
@@ -23,7 +23,7 @@
     background-color: rgb(247, 248, 250)
 }
 
-.display {
+.displayValue {
    height: 50px;
 }
 
