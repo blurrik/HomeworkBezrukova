@@ -45,32 +45,42 @@ function divide($a, $b)
 function solve($part)
 {
 
-    preg_match('/(\d+)([\+\-\*\/])(\d+)/', $part, $matches);
-
-    // print_r($matches);
-    if (count($matches) != 4)
-    {
-        return "Неверно введенное выражение";
-    }
-
+   if (preg_match('/(\d+)([\*\/])(\d+)/', $part, $matches)) {
+   
     $a = $matches[1];
     $oper = $matches[2];
     $b = $matches[3];
 
-    switch ($oper)
-    {
-        case "+":
-            return plus($a, $b);
-        case "-":
-            return minus($a, $b);
-        case "*":
-            return multi($a, $b);
-        case "/":
-            return divide($a, $b);
-        default:
-            "Ошибка";
-
+    if ($oper == '*'){
+        $result = multi($a, $b);
+    }else if ($oper == '/'){
+        $result = divide($a, $b);
     }
+
+    $newPart = str_replace($matches[0], $result, $part);
+
+    return solve($newPart);
+   }
+
+    if (preg_match('/(\d+)([\+\-])(\d+)/', $part, $matches)) {
+   
+    $a = $matches[1];
+    $oper = $matches[2];
+    $b = $matches[3];
+
+    if ($oper == '+'){
+        $result = plus($a, $b);
+    }else if ($oper == '-'){
+        $result = minus($a, $b);
+    }
+
+    $newPart = str_replace($matches[0], $result, $part);
+
+    return solve($newPart);
+   }
+
+  return $part;
+
 }
 
 ?>
