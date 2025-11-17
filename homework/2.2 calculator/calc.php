@@ -44,6 +44,13 @@ function divide($a, $b)
 
 function solve($part)
 {
+    if (preg_match('/\(([^()]+)\)/', $part, $matches)) {
+        $insideRes = solve($matches[1]);
+
+           $newPart = str_replace($matches[0], $insideRes, $part); //str_replace(что_ищем, на_что_заменяем, где_ищем) встроенная функция
+           return solve($newPart);
+        
+    }
 
    if (preg_match('/(\d+)([\*\/])(\d+)/', $part, $matches)) {
    
@@ -57,7 +64,7 @@ function solve($part)
         $result = divide($a, $b);
     }
 
-    $newPart = str_replace($matches[0], $result, $part);
+    $newPart = str_replace($matches[0], $result, $part); //упрощает сложное выражение, заменяя операции на их результаты, пока не останется одно число
 
     return solve($newPart);
    }
