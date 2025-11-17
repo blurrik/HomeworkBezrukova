@@ -7,6 +7,52 @@
     <title>ДЗ 2.2. Калькулятор. Безрукова А.С.</title>
 </head>
 <body>
-    
+    <div class ="calc">
+        <input type="text" class="display" id="display" readonly>
+        <div class = "buttons">
+           
+            <button onclick="addToDisp('/')">/</button>
+            <button onclick="addToDisp('1')">1</button>
+            <button onclick="addToDisp('2')">2</button>
+            <button onclick="addToDisp('3')">3</button>
+            <button onclick="addToDisp('+')">+</button>
+
+            <button onclick="addToDisp('4')">4</button>
+            <button onclick="addToDisp('5')">5</button>
+            <button onclick="addToDisp('6')">6</button>
+            <button onclick="addToDisp('-')">-</button>
+
+            <button onclick="addToDisp('7')">7</button>
+            <button onclick="addToDisp('8')">8</button>
+            <button onclick="addToDisp('9')">9</button>
+            <button onclick="addToDisp('*')">x</button>
+
+            <button onclick="addToDisp('(')">(</button>
+            <button onclick="addToDisp('0')">0</button>
+            <button onclick="addToDisp(')')">)</button>
+
+            <button onclick="calculate()" class="result" colspan="2">=</button>
+            <button onclick="clearDisp()" class="clear">C</button>
+
+        </div>
+    </div>
+    <script>
+        function addToDisp(value) {
+            document.getElementById('display').value += value;
+        }
+
+        function clearDisp() {
+            document.getElementById('display').value = '';
+        }
+
+        function calculate() {
+            const expression = document.getElementById('display').value;
+
+            if (!expression){
+                alert('Введите число');
+                return;
+            }
+        }
+    </script>
 </body>
 </html>
