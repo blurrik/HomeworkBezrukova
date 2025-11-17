@@ -36,6 +36,7 @@
 
                 <button type="submit" class="result" colspan="2">=</button>
                 <button type="button" onclick="clearDisp()" class="clear">C</button>
+
             </div>
         </form>
     </div>
@@ -49,14 +50,13 @@
             document.getElementById('display').value = '';
         }
 
-        // function calculate() {
-        //     const expression = document.getElementById('display').value;
-
-        //     if (!expression){
-        //         alert('Введите число');
-        //         return;
-        //     }
-        // }
+           window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const result = urlParams.get('result');
+            if (result) {
+                document.getElementById('display').value = result;
+            }
+        };
     </script>
 </body>
 </html>

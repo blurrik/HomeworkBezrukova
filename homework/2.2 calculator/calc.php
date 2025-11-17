@@ -3,12 +3,15 @@
 if (!empty($_POST["part"]))
 { //проверяем не пустой ли запрос
     $part = $_POST["part"]; //($_POST - массив переменных, передаваемых из браузера (от клиента)
+
     $result = solve($part);
     // $result = isset($_GET['result']) ? $_GET['result'] :'';
     // if (!empty($_GET["result"])) {
-    echo "выражение - ".$part. "<br>";
-    echo "результат - ".$result;
+    // echo "выражение - ".$part. "<br>";
+    // echo "результат - ".$result;
     // }
+    header("Location: calc.html?result=".urlencode($result));
+    exit;
 } else
 {
     echo "заполните поле";
