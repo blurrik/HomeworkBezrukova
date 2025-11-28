@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 $mysqli = new mysqli('localhost', 'root', '', 'notebook');
 if ($mysqli->connect_error) {
@@ -36,9 +35,8 @@ $mysqli->query($create_table);
     
     <main>
         <?php
-        if (!isset($_GET['p'])) { $_GET['p'] = 'viewer'; }
-        
-        $page = $_GET['p'];
+       $page = isset($_GET['p']) ? $_GET['p'] : 'viewer';
+
         if (file_exists($page . '.php')) { include $page . '.php';
         } else {
             include 'viewer.php';

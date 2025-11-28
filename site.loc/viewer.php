@@ -17,11 +17,11 @@ function getFriendsList($type = 'byid', $page = 0) {
     
     $count_result = $mysqli->query('SELECT COUNT(*) as total FROM friends');
     $total_row = $count_result->fetch_assoc();
-    $TOTAL = $total_row['total'];
+    $TOTAL = $total_row['total']; //общ количество записей в бд
     
     if ($TOTAL == 0) { return 'В таблице нет данных'; }
     
-    $PAGES = ceil($TOTAL / 10);
+    $PAGES = ceil($TOTAL / 10); //подсчет количества страниц
     $start = $page * 10;
     
     if ($page >= $PAGES) {
